@@ -86,9 +86,9 @@ bool PID::Compute()
 
       /*Compute Rest of PID Output*/
       double dTerm = - kd * dInput;
-      output += outputSum + dterm;
+      output += outputSum + dTerm;
 
-      lastDterm = dTerm;
+      lastDTerm = dTerm;
 
 	    if(output > outMax) output = outMax;
       else if(output < outMin) output = outMin;
