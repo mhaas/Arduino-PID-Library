@@ -51,6 +51,20 @@ class PID
     void SetSampleTime(int);              // * sets the frequency, in Milliseconds, with which 
                                           //   the PID calculation is performed.  default is 100
     double GetOutputSum();
+    /**
+     * Last computed P term. Will be 0 if P_ON_M is set, in which because
+     * the P term is added via outputSum.
+     */
+    double getLastPTerm();
+    /**
+     * Last computed I term. Not the full integral term, but only the momentary
+     * contribution that is made to the integral in outputSum.
+     */
+    double getLastITerm();
+    /**
+     * Last computed D term.
+     */
+    double getLastDTerm();
 
 
   //Display functions ****************************************************************
@@ -75,16 +89,19 @@ class PID
 	int pOn;
 
     double *myInput;              // * Pointers to the Input, Output, and Setpoint variables
-    double *myOutput;             //   This creates a hard link between the variables and the 
+    double *myOutput;             //   This creates a hard link between the variables and the
     double *mySetpoint;           //   PID, freeing the user from having to constantly tell us
                                   //   what these values are.  with pointers we'll just know.
-			  
+
 	unsigned long lastTime;
 	double outputSum, lastInput;
+
+  double lastPTerm = 0;
+  double lastITerm = 0;
+  double lastDTerm = 0;
 
 	unsigned long SampleTime;
 	double outMin, outMax;
 	bool inAuto, pOnE;
 };
 #endif
-
