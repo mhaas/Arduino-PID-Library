@@ -230,6 +230,6 @@ double PID::GetKd(){ return  dispKd;}
 int PID::GetMode(){ return  inAuto ? AUTOMATIC : MANUAL;}
 int PID::GetDirection(){ return controllerDirection;}
 double PID::GetOutputSum() { return outputSum; }
-double PID::getLastPTerm() { return lastPTerm };
-double PID::getLastITerm() { return lastITerm };
-double PD::getLastDTerm() { return lastDterm };
+double PID::getLastPTerm() { return lastPTerm; }
+double PID::getLastITerm() { return lastITerm; }
+double PID::getLastDTerm() { return lastDterm; }
