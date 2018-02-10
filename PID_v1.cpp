@@ -232,4 +232,4 @@ int PID::GetDirection(){ return controllerDirection;}
 double PID::GetOutputSum() { return outputSum; }
 double PID::getLastPTerm() { return lastPTerm; }
 double PID::getLastITerm() { return lastITerm; }
-double PID::getLastDTerm() { return lastDterm; }
+double PID::getLastDTerm() { return lastDTerm; }
